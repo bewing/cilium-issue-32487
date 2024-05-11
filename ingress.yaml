@@ -1,0 +1,16 @@
+controller:
+  tolerations:
+  - key: ""
+    operator: "Exists"
+    effect: NoSchedule
+  config:
+    enable-real-ip: "true"
+    proxy-buffer-size: "128k"
+    upstream-keepalive-timeout: 2400
+  labels:
+    release: ingress-nginx
+  podLabels:
+    component: ingress-nginx
+  service:
+    type: LoadBalancer
+    externalTrafficPolicy: Local

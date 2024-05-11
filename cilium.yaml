@@ -1,0 +1,19 @@
+k8sServiceHost: kind-control-plane
+k8sServicePort: 6443
+routingMode: native
+ipv4NativeRoutingCIDR: 100.64.0.0/10
+bgpControlPlane:
+  enabled: true
+ipam:
+  mode: multi-pool
+  operator:
+    autoCreateCiliumPodIPPools:
+      default:
+        ipv4:
+          cidrs:
+          - 100.64.0.0/16
+          maskSize: 24
+cni:
+  chainingMode: none
+operator:
+  replicas: 1
